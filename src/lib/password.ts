@@ -6,6 +6,54 @@ const CHAR_SETS = {
   symbols: '!@#$%^&*()_+-=[]{}|;:,.<>?'
 } as const;
 
+// 预设模板
+export const PASSWORD_TEMPLATES = {
+  standard: {
+    name: '标准',
+    description: '包含大小写字母、数字和符号的强密码',
+    options: {
+      length: 16,
+      uppercase: true,
+      lowercase: true,
+      numbers: true,
+      symbols: true,
+    }
+  },
+  pin: {
+    name: 'PIN码',
+    description: '纯数字密码',
+    options: {
+      length: 8,
+      uppercase: false,
+      lowercase: false,
+      numbers: true,
+      symbols: false,
+    }
+  },
+  memorable: {
+    name: '易记忆',
+    description: '仅包含字母和数字的密码',
+    options: {
+      length: 12,
+      uppercase: true,
+      lowercase: true,
+      numbers: true,
+      symbols: false,
+    }
+  },
+  strong: {
+    name: '超强',
+    description: '长度为24的超强密码',
+    options: {
+      length: 24,
+      uppercase: true,
+      lowercase: true,
+      numbers: true,
+      symbols: true,
+    }
+  }
+} as const;
+
 // 密码选项接口
 export interface PasswordOptions {
   length: number;
